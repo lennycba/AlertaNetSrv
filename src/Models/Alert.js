@@ -4,7 +4,7 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Alert",
     {
-      ticket_Id: {
+      id: {
         type: DataTypes.UUID,
         primaryKey: true,
         defaultValue: UUIDV4,
@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         references:{
             model: "Patients",
-            key: "ID"
+            key: "id"
         }
       },
       alert_tipe: {
@@ -46,7 +46,7 @@ module.exports = (sequelize) => {
         type: DataTypes.UUID,
         references:{
             model: "Mobiles",
-            key: "ID"
+            key: "id"
         }
       }
     },

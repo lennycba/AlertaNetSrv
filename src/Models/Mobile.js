@@ -4,7 +4,7 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Mobile",
     {
-      ID: {
+      id: {
         type: DataTypes.UUID,
         primaryKey: true,
         defaultValue: UUIDV4,
@@ -15,7 +15,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         references:{
             model: "Personal",
-            key: "ID"
+            key: "id"
         }
       },
       nurseId:{
@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         references:{
             model: "Personal",
-            key: "ID"
+            key: "id"
         }
       },
       doctorId:{
@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         references:{
             model: "Personal",
-            key: "ID"
+            key: "id"
         }
       },
       status:{
