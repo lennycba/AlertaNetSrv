@@ -29,6 +29,7 @@ module.exports = (sequelize) => {
             "Urgency",
             "Emergency",
             "Normal atention",
+            "Translate",
         ],
         allowNull: false,
       },
