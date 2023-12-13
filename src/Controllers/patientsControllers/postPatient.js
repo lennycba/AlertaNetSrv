@@ -2,6 +2,7 @@ const {Patient} = require ('../../db');
 const {Op} = require('sequelize');
 
 const postPatient = async ({
+    nMember,
     role,
     name,
     lastName,
@@ -12,8 +13,8 @@ const postPatient = async ({
 })=>{
     const existingPatient = await Patient.findOne({
         where: {
-            name:{
-                [Op.iLike]:name,
+            nMember:{
+                [Op.like]:nMember,
             },
         }
     });
@@ -23,6 +24,7 @@ const postPatient = async ({
     }
 
     const newPatient = await Patient.create({
+        nMember,
         role,
         name,
         lastName,

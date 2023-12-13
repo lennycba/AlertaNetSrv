@@ -10,6 +10,11 @@ module.exports = (sequelize) => {
         defaultValue: UUIDV4,
         allowNull: false,
       },
+      nMember:{
+        type:DataTypes.STRING,
+        allowNull:false,
+        unique:true,
+      },
       role:{
         type: DataTypes.STRING,
         default:"Patient",
@@ -28,9 +33,13 @@ module.exports = (sequelize) => {
         allowNull:false,
       },
       address:{
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.JSON,
         allowNull:true,
         //corregir antes de producción
+      },
+      geoCoding:{
+        type:DataTypes.JSON,
+        allowNull:true,
       },
       medicalHistory:{
         type: DataTypes.TEXT,
@@ -44,7 +53,7 @@ module.exports = (sequelize) => {
       }
     },
     {
-      timestamps: true,
+      timestamps: false,
     }
   );
 };
