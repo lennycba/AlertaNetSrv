@@ -2,6 +2,7 @@ const {Patient} = require ('../../db');
 const {Op} = require('sequelize');
 
 const postPatient = async ({
+    status,
     nMember,
     role,
     name,
@@ -24,6 +25,7 @@ const postPatient = async ({
     }
 
     const newPatient = await Patient.create({
+        status,
         nMember,
         role,
         name,

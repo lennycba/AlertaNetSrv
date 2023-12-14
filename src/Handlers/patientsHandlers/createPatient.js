@@ -3,6 +3,7 @@ const postPatient = require('../../Controllers/patientsControllers/postPatient')
 
 const createPatient = async (req,res) =>{
     const{
+        status,
         nMember,
         role,
         name,
@@ -16,6 +17,7 @@ const createPatient = async (req,res) =>{
 console.log(req.body)
     try {
         const patientData = {
+            status,
             nMember,
             role,
             name,

@@ -41,6 +41,14 @@ module.exports = (sequelize) => {
         type:DataTypes.JSON,
         allowNull:true,
       },
+      status:{
+        type:DataTypes.ENUM,
+        allowNull:false,
+        values:[
+          "Active",
+          "Inactive"
+        ]        
+      },
       medicalHistory:{
         type: DataTypes.TEXT,
         allowNull: true,
