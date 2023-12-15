@@ -27,6 +27,7 @@ module.exports = (sequelize) => {
       lastName: {
         type: DataTypes.STRING,
         allowNull: false,
+        field:'lastname',
       },
       phone:{
         type: DataTypes.STRING,

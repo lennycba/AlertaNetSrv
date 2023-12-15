@@ -1,21 +1,25 @@
 const {Patient} = require('../../db');
-const {Op} = require('sequelize');
+const {Op,literal} = require('sequelize');
 
 
-const searchByName = async(name,lastName) =>{
-    const patients = await Patient.findAll({
-        where:{
-            [Op.and]:[
-                {name:{[Op.iLike]:`%${name}%`}},
-                {lastName:{[Op.iLike]:`%${lastName}%`}},
-            ]
-        }
-    })
-console.log('patientssssssssssssssssssssssssssss',patients)
-    //if(patients > 0) 
+const searchByName = async (fullName) => {
+
+    let patients = await Patient.findAll({
+        where: literal(`CONCAT(name,' ', lastname) ILIKE :fullName`),
+        replacements: { fullName: `%${fullName}%` },  
+    });
+
+    if (patients.length <1){
+        patients = await Patient.findAll({
+            where: literal(`CONCAT(lastname,' ', name) ILIKE :fullName`),
+            replacements: { fullName: `%${fullName}%` },
+        });
+    }
+
+    if (patients.length <1) throw Error('no se encontro el afiliado buscado, por favor compruebe su ortografía y vuelva a intentarlo...')
+
     return patients;
-    //else throw Error('los datos no coinciden con ningun afiliado');
 };
 
 
-module.exports =searchByName;
+module.exports = searchByName;
