@@ -13,43 +13,33 @@ module.exports = (sequelize) => {
       location: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
+        unique: false,
       },
       patient_Id: {
         type: DataTypes.UUID,
-        allowNull: false,
-        references:{
-            model: "Patients",
-            key: "id"
-        }
+        allowNull: true,
+        //true por el momento
+        references: {
+          model: "Patients",
+          key: "id",
+        },
       },
       alert_tipe: {
         type: DataTypes.ENUM,
-        values:[
-            "Urgency",
-            "Emergency",
-            "Normal atention",
-            "Translate",
-        ],
+        values: ["Urgency", "Emergency", "Normal atention", "Translate"],
         allowNull: false,
       },
-      status:{
+      status: {
         type: DataTypes.ENUM,
-        values: [
-            "Pending",
-            "Assigned",
-            "On course",
-            "Complete",
-            "Aborted",
-        ],
+        values: ["Pending", "Assigned", "On course", "Complete", "Aborted"],
       },
-      mobile_Id:{
+      mobile_Id: {
         type: DataTypes.UUID,
-        references:{
-            model: "Mobiles",
-            key: "id"
-        }
-      }
+        references: {
+          model: "Mobiles",
+          key: "id",
+        },
+      },
     },
     {
       timestamps: true,
