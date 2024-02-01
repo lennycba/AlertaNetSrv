@@ -10,6 +10,11 @@ module.exports = (sequelize) => {
         defaultValue: UUIDV4,
         allowNull: false,
       },
+      nPersonal:{
+        type:DataTypes.STRING,
+        allowNull:false,
+        unique:true,
+      },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -17,6 +22,7 @@ module.exports = (sequelize) => {
       lastName: {
         type: DataTypes.STRING,
         allowNull: false,
+        field:'lastname',
       },
       phone:{
         type: DataTypes.STRING,
