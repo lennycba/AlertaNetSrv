@@ -14,7 +14,6 @@ const createPatient = async (req,res) =>{
         image,
     } = req.body;
 
-console.log(req.body)
     try {
         const patientData = {
             status,

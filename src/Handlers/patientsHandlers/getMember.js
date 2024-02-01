@@ -2,7 +2,7 @@ const searchNMember = require('../../Controllers/patientsControllers/searchNMemb
 
 const getMember = async (req,res) =>{
     const {nMember} = req.params;
-    console.log(nMember);
+    
     try{
         const search = await searchNMember(nMember);
         res.status(200).json(search);
