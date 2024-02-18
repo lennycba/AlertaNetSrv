@@ -1,6 +1,8 @@
 const { DataTypes, UUIDV4 } = require("sequelize");
 
 module.exports = (sequelize) => {
+  //corregir nombre de modelo por "Staff"
+  //agregar propiedad "company ID"
   sequelize.define(
     "Personal",
     {
