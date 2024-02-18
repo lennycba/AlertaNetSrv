@@ -27,7 +27,11 @@ module.exports = (sequelize) => {
       alert_tipe: {
         type: DataTypes.ENUM,
         values: ["Urgency", "Emergency", "Normal atention", "Translate"],
+        //cambiar "normal atention por Nursery"
         allowNull: false,
+      },
+      details:{
+        type:DataTypes.TEXT
       },
       status: {
         type: DataTypes.ENUM,

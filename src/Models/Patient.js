@@ -1,6 +1,7 @@
 const { DataTypes, UUIDV4 } = require("sequelize");
 
 module.exports = (sequelize) => {
+  //relacionar con company ID
   sequelize.define(
     "Patient",
     {
@@ -53,6 +54,7 @@ module.exports = (sequelize) => {
       medicalHistory:{
         type: DataTypes.TEXT,
         allowNull: true,
+        //la historia clinica debe estar relacionada a otro modelo con sus respectivas props (alergias, medicamentos suministrados, etc...) POST por cada registro con su respectivo post put delete y get by date
         //allowNull true, ya que al principio estará vacía
       },
       image:{
