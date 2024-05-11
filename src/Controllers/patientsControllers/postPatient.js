@@ -8,7 +8,10 @@ const postPatient = async ({
     name,
     lastName,
     phone,
+    email,
+    password,
     address,
+    geoCoding,
     medicalHistory,
     image,
 })=>{
@@ -31,7 +34,10 @@ const postPatient = async ({
         name,
         lastName,
         phone,
+        email,
+        password,
         address,
+        geoCoding,
         medicalHistory,
         image,
     });
