@@ -1,5 +1,5 @@
 const postPatient = require('../../Controllers/patientsControllers/postPatient')
-
+const bcrypt = require('bcryptjs');
 
 const createPatient = async (req,res) =>{
     const{
@@ -9,10 +9,15 @@ const createPatient = async (req,res) =>{
         name,
         lastName,
         phone,
+        email,
+        password,
         address,
+        geoCoding,
         medicalHistory,
         image,
     } = req.body;
+
+
 
     try {
         const patientData = {
@@ -22,7 +27,10 @@ const createPatient = async (req,res) =>{
             name,
             lastName,
             phone,
+            email,
+            password: bcrypt.hashSync(password),
             address,
+            geoCoding,
             medicalHistory,
             image,
         }
@@ -32,7 +40,7 @@ const createPatient = async (req,res) =>{
         return res.status(201).json(newPatient)
 
     } catch (error) {
-        res.status(200).json(error.message)
+        res.status(400).json(error.message)
     }
 }
 
