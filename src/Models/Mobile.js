@@ -1,6 +1,10 @@
 const { DataTypes, UUIDV4 } = require("sequelize");
 
 module.exports = (sequelize) => {
+
+  //CREAR MODELO COMPANY
+  //corregir nombre de modelo por "Vehicle"
+  //agregar propiedad company ID
   sequelize.define(
     "Mobile",
     {
