@@ -6,8 +6,8 @@ const personalRouter = require("./personalRouter");
 const authRouter = require("./authRouter");
 
 mainRouter.use('/alert', alertRouter);
-mainRouter.use('/patient',patientRouter);
-mainRouter.use('/personal',personalRouter);
+mainRouter.use('/patient', patientRouter);
+mainRouter.use('/personal', personalRouter);
 mainRouter.use('/auth', authRouter)
 
 module.exports = mainRouter;

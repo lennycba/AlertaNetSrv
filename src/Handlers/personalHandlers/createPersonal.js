@@ -1,5 +1,5 @@
 const postPersonal = require('../../Controllers/personalControlers/postPersonal')
-
+const bcrypt = require('bcryptjs');
 
 const createPersonal = async (req,res) =>{
     const{
@@ -7,6 +7,8 @@ const createPersonal = async (req,res) =>{
         name,
         lastName,
         phone,
+        email,
+        password,
         role,
         status,
         image,
@@ -18,6 +20,8 @@ const createPersonal = async (req,res) =>{
         name,
         lastName,
         phone,
+        email,
+        password: bcrypt.hashSync(password),
         role,
         status,
         image,

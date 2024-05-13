@@ -5,7 +5,10 @@ const {Op} = require('sequelize');
 const searchNMember = async (nMember) =>{
     const searchP = await Patient.findOne({
         where: {
-            nMember:nMember,
+            nMember,
+        },
+        attributes: { 
+            exclude: 'password' 
         }
     })
 

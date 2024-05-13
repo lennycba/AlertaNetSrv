@@ -11,4 +11,4 @@ const getByName = async (req,res) =>{
     } 
 };
 
-module.exports=getByName;
+module.exports = getByName;

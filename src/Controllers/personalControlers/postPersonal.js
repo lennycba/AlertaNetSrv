@@ -6,6 +6,8 @@ const postPersonal = async ({
         name,
         lastName,
         phone,
+        email,
+        password,
         role,
         status,
         image,
@@ -13,7 +15,7 @@ const postPersonal = async ({
     const existingPersonal = await Personal.findOne({
         where: {
             nPersonal:{
-                [Op.like]:nPersonal,
+                [Op.like]: nPersonal,
             },
         }
     });
@@ -27,6 +29,8 @@ const postPersonal = async ({
         name,
         lastName,
         phone,
+        email,
+        password,
         role,
         status,
         image,
