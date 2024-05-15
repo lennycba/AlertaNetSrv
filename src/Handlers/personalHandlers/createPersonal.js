@@ -1,39 +1,47 @@
 const postPersonal = require('../../Controllers/personalControlers/postPersonal')
 const bcrypt = require('bcryptjs');
 
-const createPersonal = async (req,res) =>{
-    const{
-        nPersonal,
-        name,
-        lastName,
-        phone,
-        email,
-        password,
-        role,
-        status,
-        image,
-    } = req.body;
+const createPersonal = async (req, res) => {
+  const {
+    nPersonal,
+    name,
+    lastName,
+    phone,
+    email,
+    password,
+    address,
+    geoCoding,
+    role,
+    status,
+    image,
+  } = req.body;
 
-    try {
-        const personalData = {
-        nPersonal,
-        name,
-        lastName,
-        phone,
-        email,
-        password: bcrypt.hashSync(password),
-        role,
-        status,
-        image,
-        }
-
-    
-        const newPersonal = await postPersonal(personalData);
-        return res.status(201).json(newPersonal)
-
-    } catch (error) {
-        res.status(200).json(error.message)
+  try {
+    const personalData = {
+      nPersonal,
+      name,
+      lastName,
+      phone,
+      email,
+      pass: bcrypt.hashSync(password),
+      address,
+      geoCoding,
+      role,
+      status,
+      image,
     }
+
+
+    const { ok, user, statusCode, message } = await postPersonal(personalData);
+
+    if (!ok) {
+      return res.status(statusCode).json({ ok, message })
+    }
+    return res.status(statusCode).json({ ok, message, user })
+
+  } catch (error) {
+    res.status(500).json({ ok: false, message: error.message })
+  }
 }
 
 module.exports = createPersonal;
