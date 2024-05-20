@@ -1,6 +1,11 @@
+const dotenv = require('dotenv')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { Patient } = require('../../db');
+
+dotenv.config()
+
+const { JWT_ISSUER, JWT_AUDIENCE } = process.env
 
 const loginPatients = async (email, pass) => {
 
@@ -36,7 +41,9 @@ const loginPatients = async (email, pass) => {
     const { password, ...rest } = user.dataValues
 
     const token = jwt.sign(payload, process.env.SECRET_KEY, {
-      expiresIn: '30d',
+      expiresIn: '5d',
+      issuer: JWT_ISSUER,
+      audience: JWT_AUDIENCE
     })
 
 

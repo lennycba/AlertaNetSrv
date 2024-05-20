@@ -10,31 +10,37 @@ module.exports = (sequelize) => {
         defaultValue: UUIDV4,
         allowNull: false,
       },
+      address: {
+        type: DataTypes.JSON,
+        allowNull: true,
+      },
       location: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: false,
+        type: DataTypes.JSON,
+        allowNull: true,
+        // unique: false,
       },
       patient_Id: {
         type: DataTypes.UUID,
-        allowNull: true,
+        allowNull: false,
         //true por el momento
         references: {
           model: "Patients",
           key: "id",
         },
       },
-      alert_tipe: {
+      alert_type: {
         type: DataTypes.ENUM,
-        values: ["Urgency", "Emergency", "Normal atention", "Translate"],
+        values: ["Urgency", "Emergency", "Nursery", "Translate"],
         allowNull: false,
       },
       status: {
         type: DataTypes.ENUM,
         values: ["Pending", "Assigned", "On course", "Complete", "Aborted"],
+        defaultValue: "Pending",
       },
       mobile_Id: {
         type: DataTypes.UUID,
+        allowNull: true,
         references: {
           model: "Mobiles",
           key: "id",
