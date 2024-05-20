@@ -9,7 +9,7 @@ require("./db.js");
 const {createServer} = require('http')
 
 
-
+// Negro
 const cors = require("cors");
 
 const server = express();
