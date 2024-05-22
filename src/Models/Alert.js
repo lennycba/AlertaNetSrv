@@ -28,6 +28,13 @@ module.exports = (sequelize) => {
           key: "id",
         },
       },
+
+      // Todo: Se debe agregar información de la alerta
+      // Campos:
+      //  Categoría, Síntomas(tabla aparte CREAR MODELO), Descripción, Rutas par traslados
+      // Ver como tratar los servicios de enfermería
+      // Ver como tratar los servicios de traslado
+      
       alertType: {
         type: DataTypes.ENUM,
         values: ["urgency", "emergency", "nursery", "translate"],
