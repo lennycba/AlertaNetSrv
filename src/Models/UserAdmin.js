@@ -2,22 +2,13 @@ const { DataTypes, UUIDV4 } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "Personal",
+    "UserAdmin",
     {
       id: {
         type: DataTypes.UUID,
         primaryKey: true,
         defaultValue: UUIDV4,
         allowNull: false,
-      },
-      companyId: {
-        type: DataTypes.UUID,
-        allowNull: false,
-      },
-      employeeNumber: {
-        type:DataTypes.STRING,
-        allowNull:false,
-        unique:true,
       },
       name: {
         type: DataTypes.STRING,
@@ -45,29 +36,10 @@ module.exports = (sequelize) => {
         type: DataTypes.JSON,
         allowNull: true,
       },
-      geoCoding: {
-        type: DataTypes.JSON,
-        allowNull: true,
-      },
       role:{
-        type: DataTypes.ENUM,
+        type: DataTypes.STRING,
         allowNull: false,
-        values:[
-            "Admin",
-            "Operator",
-            "Driver",
-            "Nurse",
-            "Doctor",
-        ],
-      },
-      status:{
-        type: DataTypes.ENUM,
-        allowNull:false,
-        values:[
-            "On duty",
-            "Absent",
-            "On vacation leave",
-        ]
+        defaultValue: "super_admin"
       },
       image:{
         type: DataTypes.STRING,

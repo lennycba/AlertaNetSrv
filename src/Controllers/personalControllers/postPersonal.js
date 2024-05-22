@@ -2,7 +2,7 @@ const { Personal } = require('../../db');
 const { Op } = require('sequelize');
 
 const postPersonal = async ({
-  nPersonal,
+  employeeNumber,
   name,
   lastName,
   phone,
@@ -16,8 +16,8 @@ const postPersonal = async ({
 }) => {
   const existingPersonal = await Personal.findOne({
     where: {
-      nPersonal: {
-        [Op.like]: nPersonal,
+      employeeNumber: {
+        [Op.like]: employeeNumber,
       },
     }
   });
@@ -31,7 +31,7 @@ const postPersonal = async ({
   }
 
   const newPersonal = await Personal.create({
-    nPersonal,
+    employeeNumber,
     name,
     lastName,
     phone,

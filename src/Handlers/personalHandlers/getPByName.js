@@ -1,4 +1,4 @@
-const searchPByName = require('../../Controllers/personalControlers/searchPByName');
+const searchPByName = require('../../Controllers/personalControllers/searchPByName');
 
 const getPByName = async (req,res) =>{
     const {fullName} = req.query;

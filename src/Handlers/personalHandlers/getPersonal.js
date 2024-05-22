@@ -1,4 +1,4 @@
-const getAllPersonal = require('../../Controllers/personalControlers/getAllPersonal')
+const getAllPersonal = require('../../Controllers/personalControllers/getAllPersonal')
 
 
 const getPersonal = async (req,res) =>{

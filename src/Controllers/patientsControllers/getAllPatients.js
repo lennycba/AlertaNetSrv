@@ -1,7 +1,11 @@
-const {Patient} = require('../../db');
+const {Patient, Company} = require('../../db');
 
 const getAllPatients = async () => {
     const patients = await Patient.findAll({
+        include: {
+            model: Company,
+            attributes: ['id', 'companyName', 'email', 'phone', 'address', 'city', 'province', 'country', 'location', 'companyLogo'],
+        },
         attributes: {
             exclude: 'password'
         }

@@ -1,10 +1,10 @@
-const searchNMember = require('../../Controllers/patientsControllers/searchNMember');
+const searchByMembershipNumber = require('../../Controllers/patientsControllers/searchByMembershipNumber');
 
 const getMember = async (req,res) =>{
-    const {nMember} = req.params;
+    const {membershipNumber} = req.params;
     
     try{
-        const search = await searchNMember(nMember);
+        const search = await searchByMembershipNumber(membershipNumber);
         res.status(200).json(search);
     } catch (error){
         res.status(200).json(error.message);

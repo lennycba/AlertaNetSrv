@@ -9,7 +9,7 @@ const editPatient = require("../Handlers/patientsHandlers/editPatient");
 
 patientRouter.get('/', getPatients);
 patientRouter.get('/search',getByName)
-patientRouter.get('/:nMember',getMember)
+patientRouter.get('/:membershipNumber',getMember)
 patientRouter.post('/',createPatient);
 patientRouter.put('/',editPatient)
 

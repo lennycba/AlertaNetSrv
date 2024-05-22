@@ -19,36 +19,37 @@ module.exports = (sequelize) => {
         allowNull: true,
         // unique: false,
       },
-      patient_Id: {
+      patientId: {
         type: DataTypes.UUID,
         allowNull: false,
         //true por el momento
         references: {
-          model: "Patients",
+          model: "Patient",
           key: "id",
         },
       },
-      alert_type: {
+      alertType: {
         type: DataTypes.ENUM,
-        values: ["Urgency", "Emergency", "Nursery", "Translate"],
+        values: ["urgency", "emergency", "nursery", "translate"],
         allowNull: false,
       },
       status: {
         type: DataTypes.ENUM,
-        values: ["Pending", "Assigned", "On course", "Complete", "Aborted"],
-        defaultValue: "Pending",
+        values: ["pending", "assigned", "on_course", "complete", "aborted"],
+        defaultValue: "pending",
       },
-      mobile_Id: {
+      mobileId: {
         type: DataTypes.UUID,
         allowNull: true,
         references: {
-          model: "Mobiles",
+          model: "Mobile",
           key: "id",
         },
       },
     },
     {
       timestamps: true,
+      freezeTableName: true,
     }
   );
 };

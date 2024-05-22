@@ -6,7 +6,7 @@ const updatePatient = require('../../Controllers/patientsControllers/updatePatie
 const editPatient = async (req,res) =>{
     const{
         status,
-        nMember,
+        membershipNumber,
         role,
         name,
         lastName,
@@ -20,7 +20,7 @@ const editPatient = async (req,res) =>{
     try {
         const patientData = {
             status,
-            nMember,
+            membershipNumber,
             role,
             name,
             lastName,

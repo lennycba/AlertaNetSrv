@@ -10,9 +10,13 @@ module.exports = (sequelize) => {
         defaultValue: UUIDV4,
         allowNull: false,
       },
-      driverId:{
+      companyId: {
         type: DataTypes.UUID,
         allowNull: false,
+      },
+      driverId:{
+        type: DataTypes.UUID,
+        allowNull: true,
         references:{
             model: "Personal",
             key: "id"
@@ -20,7 +24,7 @@ module.exports = (sequelize) => {
       },
       nurseId:{
         type: DataTypes.UUID,
-        allowNull: false,
+        allowNull: true,
         references:{
             model: "Personal",
             key: "id"
@@ -28,7 +32,7 @@ module.exports = (sequelize) => {
       },
       doctorId:{
         type: DataTypes.UUID,
-        allowNull: false,
+        allowNull: true,
         references:{
             model: "Personal",
             key: "id"
@@ -41,11 +45,13 @@ module.exports = (sequelize) => {
             "On service",
             "On reparation",
             "Out of service",
-        ]
+        ],
+        defaultValue: "On service"
       }
     },
     {
-      timestamps: false,
+      timestamps: true,
+      freezeTableName: true,
     }
   );
 };

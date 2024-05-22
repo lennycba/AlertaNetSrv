@@ -4,7 +4,8 @@ const bcrypt = require('bcryptjs');
 const createPatient = async (req,res) =>{
     const{
         status,
-        nMember,
+        companyId,
+        membershipNumber,
         role,
         name,
         lastName,
@@ -22,7 +23,8 @@ const createPatient = async (req,res) =>{
     try {
         const patientData = {
             status,
-            nMember,
+            companyId,
+            membershipNumber,
             role,
             name,
             lastName,
@@ -36,11 +38,11 @@ const createPatient = async (req,res) =>{
         }
 
     
-        const newPatient = await postPatient(patientData);
-        return res.status(201).json(newPatient)
+        const {ok, statusCode, message, patient} = await postPatient(patientData);
+        return res.status(statusCode).json({ok, message, patient})
 
     } catch (error) {
-        res.status(400).json(error.message)
+        res.status(500).json(error.message)
     }
 }
 

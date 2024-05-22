@@ -40,9 +40,20 @@ Alert,
 Personal,
 Mobile,
 Patient,
+UserAdmin,
+Company
 } = sequelize.models;
+
+Company.hasMany(Patient, { foreignKey: 'companyId' });
+Patient.belongsTo(Company, { foreignKey: 'companyId' });
+
+Company.hasMany(Personal, { foreignKey: 'companyId' });
+Personal.belongsTo(Company, { foreignKey: 'companyId' });
+
+Company.hasMany(Mobile, { foreignKey: 'companyId' });
+Mobile.belongsTo(Company, { foreignKey: 'companyId' });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
-  conn: sequelize, // para importart la conexión { conn } = require('./db.js');
+  conn: sequelize, // para importar la conexión { conn } = require('./db.js');
 };

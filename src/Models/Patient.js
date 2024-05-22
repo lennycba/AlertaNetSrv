@@ -10,7 +10,11 @@ module.exports = (sequelize) => {
         defaultValue: UUIDV4,
         allowNull: false,
       },
-      nMember:{
+      companyId: {
+        type: DataTypes.UUID,
+        allowNull: false,
+      },
+      membershipNumber:{
         type:DataTypes.STRING,
         allowNull:false,
         unique:true,
@@ -62,13 +66,15 @@ module.exports = (sequelize) => {
       medicalHistory:{
         type: DataTypes.TEXT,
         allowNull: true,
-        //allowNull true, ya que al principio estará vacía
       },
       image:{
         type: DataTypes.STRING,
         allowNull:true,
-        //allowNull true, ya que el paciente puede NO elegir una imagen si quiere, en ese caso deberia cargarse una por defecto
       }
+    },
+    {
+      timestamps: true,
+      freezeTableName: true,
     }
   );
 };
