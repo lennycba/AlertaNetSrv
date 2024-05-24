@@ -10,29 +10,13 @@ module.exports = (sequelize) => {
         defaultValue: UUIDV4,
         allowNull: false,
       },
-      driverId:{
+      companyId: {
         type: DataTypes.UUID,
         allowNull: false,
-        references:{
-            model: "Personal",
-            key: "id"
-        }
       },
-      nurseId:{
-        type: DataTypes.UUID,
+      plateNumber: {
+        type: DataTypes.STRING,
         allowNull: false,
-        references:{
-            model: "Personal",
-            key: "id"
-        }
-      },
-      doctorId:{
-        type: DataTypes.UUID,
-        allowNull: false,
-        references:{
-            model: "Personal",
-            key: "id"
-        }
       },
       status:{
         type: DataTypes.ENUM,
@@ -41,11 +25,13 @@ module.exports = (sequelize) => {
             "On service",
             "On reparation",
             "Out of service",
-        ]
+        ],
+        defaultValue: "On service"
       }
     },
     {
-      timestamps: false,
+      timestamps: true,
+      freezeTableName: true,
     }
   );
 };

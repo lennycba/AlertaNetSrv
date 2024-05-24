@@ -1,9 +1,10 @@
-const {Patient} = require ('../../db');
+const { Patient, Company } = require ('../../db');
 const {Op} = require('sequelize');
 
 const postPatient = async ({
     status,
-    nMember,
+    companyId,
+    membershipNumber,
     role,
     name,
     lastName,
@@ -15,21 +16,36 @@ const postPatient = async ({
     medicalHistory,
     image,
 })=>{
+
+    const existingCompany = await Company.findByPk(companyId);
+    if(!existingCompany){
+        return {
+            ok: false,
+            statusCode: 400,
+            message: 'Company not found'
+        }
+    }
+
     const existingPatient = await Patient.findOne({
         where: {
-            nMember:{
-                [Op.like]:nMember,
+            membershipNumber:{
+                [Op.like]:membershipNumber,
             },
         }
     });
 
     if(existingPatient){
-        throw Error("Ya existe un paciente con estos datos");
+        return {
+            ok: false,
+            statusCode: 400,
+            message: 'Patient already exists'
+        }
     }
 
     const newPatient = await Patient.create({
         status,
-        nMember,
+        companyId,
+        membershipNumber,
         role,
         name,
         lastName,
@@ -43,7 +59,12 @@ const postPatient = async ({
     });
 
 
-    return newPatient;
+    return {
+        ok: true,
+        statusCode: 201,
+        message: 'Patient created successfully',
+        patient: newPatient
+    };
 }
 
 module.exports = postPatient

@@ -1,40 +1,32 @@
-const postPersonal = require('../../Controllers/personalControllers/postPersonal')
 const bcrypt = require('bcryptjs');
+const postSuperadmin = require('../../Controllers/superadminControllers/postSuperadmin');
 
-const createPersonal = async (req, res) => {
+const createSuperadmin = async (req, res) => {
   const {
-    companyId,
-    employeeNumber,
     name,
     lastName,
     phone,
     email,
     password,
     address,
-    geoCoding,
     role,
-    status,
     image,
   } = req.body;
 
   try {
-    const personalData = {
-      companyId,
-      employeeNumber,
+    const superadminData = {
       name,
       lastName,
       phone,
       email,
       pass: bcrypt.hashSync(password),
       address,
-      geoCoding,
       role,
-      status,
       image,
     }
 
 
-    const { ok, user, statusCode, message } = await postPersonal(personalData);
+    const { ok, user, statusCode, message } = await postSuperadmin(superadminData);
 
     if (!ok) {
       return res.status(statusCode).json({ ok, message })
@@ -46,4 +38,4 @@ const createPersonal = async (req, res) => {
   }
 }
 
-module.exports = createPersonal;
+module.exports = createSuperadmin;

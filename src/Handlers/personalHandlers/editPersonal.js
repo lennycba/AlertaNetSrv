@@ -1,11 +1,11 @@
-const updatePersonal = require('../../Controllers/personalControlers/updatePersonal')
+const updatePersonal = require('../../Controllers/personalControllers/updatePersonal')
 
 
 //ACLARACIÓN: es necesario corregir la req de IMAGE para que tome la ruta de cloudinary cuando claudinary se implemente
 
 const editPersonal = async (req,res) =>{
     const{
-        nPersonal,
+        employeeNumber,
         name,
         lastName,
         phone,
@@ -17,7 +17,7 @@ const editPersonal = async (req,res) =>{
 
     try {
         const personalData = {
-                nPersonal,
+                employeeNumber,
                 name,
                 lastName,
                 phone,

@@ -2,7 +2,7 @@ const {Personal} = require('../../db');
 
 
 const updatePersonal = async ({
-            nPersonal,
+            employeeNumber,
             name,
             lastName,
             phone,
@@ -10,7 +10,7 @@ const updatePersonal = async ({
             role,
             image }) => {
         
-        let personalToUpdate = await Personal.findOne({nPersonal})
+        let personalToUpdate = await Personal.findOne({employeeNumber})
         if (!personalToUpdate) {
             throw new Error('personal no encontrado')
         } else {

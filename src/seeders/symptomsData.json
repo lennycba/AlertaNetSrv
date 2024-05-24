@@ -1,0 +1,177 @@
+[
+  {
+      "name": {
+          "es": "Mareo",
+          "pt": "Tontura"
+      },
+      "category": ["accident", "disease"]
+  },
+  {
+      "name": {
+          "es": "Náuseas",
+          "pt": "Náuseas"
+      },
+      "category": ["disease", "poisoning"]
+  },
+  {
+      "name": {
+          "es": "Dolor abdominal",
+          "pt": "Dor abdominal"
+      },
+      "category": ["disease", "poisoning"]
+  },
+  {
+      "name": {
+          "es": "Vómitos",
+          "pt": "Vômitos"
+      },
+      "category": ["disease", "poisoning"]
+  },
+  {
+      "name": {
+          "es": "Fiebre alta",
+          "pt": "Febre alta"
+      },
+      "category": ["disease", "poisoning"]
+  },
+  {
+      "name": {
+          "es": "Convulsiones",
+          "pt": "Convulsões"
+      },
+      "category": ["disease"]
+  },
+  {
+      "name": {
+          "es": "Ritmo cardíaco irregular",
+          "pt": "Batimento cardíaco irregular"
+      },
+      "category": ["disease"]
+  },
+  {
+      "name": {
+          "es": "Fatiga",
+          "pt": "Fadiga"
+      },
+      "category": ["disease", "pregnancy"]
+  },
+  {
+      "name": {
+          "es": "Hinchazón",
+          "pt": "Inchaço"
+      },
+      "category": ["disease", "pregnancy"]
+  },
+  {
+      "name": {
+          "es": "Calambres",
+          "pt": "Cãibras"
+      },
+      "category": ["disease", "pregnancy"]
+  },
+  {
+      "name": {
+          "es": "Sangrado",
+          "pt": "Sangramento"
+      },
+      "category": ["disease", "pregnancy"]
+  },
+  {
+      "name": {
+          "es": "Dificultad para respirar",
+          "pt": "Dificuldade para respirar"
+      },
+      "category": ["disease", "pregnancy"]
+  },
+  {
+      "name": {
+          "es": "Dolor de cabeza",
+          "pt": "Dor de cabeça"
+      },
+      "category": ["disease", "accident"]
+  },
+  {
+      "name": {
+          "es": "Confusión",
+          "pt": "Confusão"
+      },
+      "category": ["disease", "accident"]
+  },
+  {
+      "name": {
+          "es": "Pérdida de memoria",
+          "pt": "Perda de memória"
+      },
+      "category": ["disease", "accident"]
+  },
+  {
+      "name": {
+          "es": "Dificultad para concentrarse",
+          "pt": "Dificuldade de concentração"
+      },
+      "category": ["disease", "accident"]
+  },
+  {
+      "name": {
+          "es": "Dificultad para hablar",
+          "pt": "Dificuldade de falar"
+      },
+      "category": ["disease", "accident"]
+  },
+  {
+      "name": {
+          "es": "Pérdida de conciencia",
+          "pt": "Perda de consciência"
+      },
+      "category": ["disease", "accident"]
+  },
+  {
+      "name": {
+          "es": "Visión borrosa",
+          "pt": "Visão turva"
+      },
+      "category": ["disease", "accident"]
+  },
+  {
+      "name": {
+          "es": "Dolor en el pecho",
+          "pt": "Dor no peito"
+      },
+      "category": ["disease", "accident"]
+  },
+  {
+      "name": {
+          "es": "Sangrado durante el embarazo",
+          "pt": "Sangramento durante a gravidez"
+      },
+      "category": ["disease", "pregnancy"]
+  },
+  {
+      "name": {
+          "es": "Movimientos fetales",
+          "pt": "Movimentos fetais"
+      },
+      "category": ["disease", "pregnancy"]
+  },
+  {
+      "name": {
+          "es": "Disminución de los movimientos fetales",
+          "pt": "Diminuição dos movimentos fetais"
+      },
+      "category": ["disease", "pregnancy"]
+  },
+  {
+      "name": {
+          "es": "Síntomas de toxicidad",
+          "pt": "Sintomas de toxicidade"
+      },
+      "category": ["poisoning"]
+  },
+  {
+      "name": {
+          "es": "Erupción",
+          "pt": "Erupção cutânea"
+      },
+      "category": ["disease", "poisoning"]
+  }
+]

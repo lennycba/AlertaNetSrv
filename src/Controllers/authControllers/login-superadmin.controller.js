@@ -1,15 +1,15 @@
 const dotenv = require('dotenv')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const { Patient } = require('../../db');
+const { UserAdmin } = require('../../db');
 
 dotenv.config()
 
 const { JWT_ISSUER, JWT_AUDIENCE } = process.env
 
-const loginPatients = async (email, pass) => {
+const loginSuperadmin = async (email, pass) => {
 
-  const user = await Patient.findOne({
+  const user = await UserAdmin.findOne({
     where: {
       email
     }
@@ -36,13 +36,12 @@ const loginPatients = async (email, pass) => {
 
     const payload = {
       id: user.id,
-      companyId: user.companyId,
       role: user.role,
     }
     const { password, ...rest } = user.dataValues
 
     const token = jwt.sign(payload, process.env.SECRET_KEY, {
-      expiresIn: '5d',
+      expiresIn: '8h',
       issuer: JWT_ISSUER,
       audience: JWT_AUDIENCE
     })
@@ -58,4 +57,4 @@ const loginPatients = async (email, pass) => {
   }
 }
 
-module.exports = loginPatients
+module.exports = loginSuperadmin

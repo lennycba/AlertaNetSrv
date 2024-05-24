@@ -10,39 +10,64 @@ module.exports = (sequelize) => {
         defaultValue: UUIDV4,
         allowNull: false,
       },
-      location: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: false,
-      },
-      patient_Id: {
-        type: DataTypes.UUID,
+      address: {
+        type: DataTypes.JSON,
         allowNull: true,
+      },
+      geoCoding: {
+        type: DataTypes.JSON,
+        allowNull: true,
+        // unique: false,
+      },
+      patientId: {
+        type: DataTypes.UUID,
+        allowNull: false,
         //true por el momento
         references: {
-          model: "Patients",
+          model: "Patient",
           key: "id",
         },
       },
-      alert_tipe: {
+      companyId: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+          model: "Company",
+          key: "id",
+        },
+      },
+      alertType: {
         type: DataTypes.ENUM,
-        values: ["Urgency", "Emergency", "Normal atention", "Translate"],
+        values: ["urgency", "emergency", "nursery", "translate"],
         allowNull: false,
       },
+      description: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      },
+      // Todo: Se debe agregar información de la alerta
+      // Campos:
+      //  Categoría, Síntomas(tabla aparte CREAR MODELO), Descripción, Rutas par traslados
+      // Ver como tratar los servicios de enfermería
+      // Ver como tratar los servicios de traslado
+      
       status: {
         type: DataTypes.ENUM,
-        values: ["Pending", "Assigned", "On course", "Complete", "Aborted"],
+        values: ["pending", "assigned", "on_course", "complete", "aborted"],
+        defaultValue: "pending",
       },
-      mobile_Id: {
+      mobileId: {
         type: DataTypes.UUID,
+        allowNull: true,
         references: {
-          model: "Mobiles",
+          model: "Mobile",
           key: "id",
         },
       },
     },
     {
       timestamps: true,
+      freezeTableName: true,
     }
   );
 };
