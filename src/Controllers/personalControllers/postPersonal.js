@@ -1,7 +1,8 @@
-const { Personal } = require('../../db');
+const { Personal, Company } = require('../../db');
 const { Op } = require('sequelize');
 
 const postPersonal = async ({
+  companyId,
   employeeNumber,
   name,
   lastName,
@@ -14,6 +15,16 @@ const postPersonal = async ({
   status,
   image,
 }) => {
+
+  const existingCompany = await Company.findByPk(companyId);
+    if(!existingCompany){
+        return {
+            ok: false,
+            statusCode: 400,
+            message: 'Company not found'
+        }
+    }
+
   const existingPersonal = await Personal.findOne({
     where: {
       employeeNumber: {
@@ -31,6 +42,7 @@ const postPersonal = async ({
   }
 
   const newPersonal = await Personal.create({
+    companyId,
     employeeNumber,
     name,
     lastName,

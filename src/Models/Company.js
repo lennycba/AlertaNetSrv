@@ -77,7 +77,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         defaultValue: DataTypes.NOW,
       },
-      location: {
+      geoCoding: {
         type: DataTypes.JSON,
         allowNull: true,
       },

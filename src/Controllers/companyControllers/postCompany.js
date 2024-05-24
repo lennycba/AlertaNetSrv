@@ -13,7 +13,7 @@ const postCompany = async ({
   companyType,
   companySize,
   membershipType,
-  location,
+  geoCoding,
   createdBy,
   updatedBy,
   companyLogo
@@ -41,7 +41,7 @@ const postCompany = async ({
     companyType,
     companySize,
     membershipType,
-    location,
+    geoCoding,
     createdBy,
     updatedBy,
     companyLogo

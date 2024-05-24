@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
         type: DataTypes.JSON,
         allowNull: true,
       },
-      location: {
+      geoCoding: {
         type: DataTypes.JSON,
         allowNull: true,
         // unique: false,
@@ -28,18 +28,29 @@ module.exports = (sequelize) => {
           key: "id",
         },
       },
-
+      companyId: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+          model: "Company",
+          key: "id",
+        },
+      },
+      alertType: {
+        type: DataTypes.ENUM,
+        values: ["urgency", "emergency", "nursery", "translate"],
+        allowNull: false,
+      },
+      description: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      },
       // Todo: Se debe agregar información de la alerta
       // Campos:
       //  Categoría, Síntomas(tabla aparte CREAR MODELO), Descripción, Rutas par traslados
       // Ver como tratar los servicios de enfermería
       // Ver como tratar los servicios de traslado
       
-      alertType: {
-        type: DataTypes.ENUM,
-        values: ["urgency", "emergency", "nursery", "translate"],
-        allowNull: false,
-      },
       status: {
         type: DataTypes.ENUM,
         values: ["pending", "assigned", "on_course", "complete", "aborted"],

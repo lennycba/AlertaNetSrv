@@ -36,6 +36,7 @@ const loginPatients = async (email, pass) => {
 
     const payload = {
       id: user.id,
+      companyId: user.companyId,
       role: user.role,
     }
     const { password, ...rest } = user.dataValues

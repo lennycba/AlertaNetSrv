@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const createPersonal = async (req, res) => {
   const {
+    companyId,
     employeeNumber,
     name,
     lastName,
@@ -18,6 +19,7 @@ const createPersonal = async (req, res) => {
 
   try {
     const personalData = {
+      companyId,
       employeeNumber,
       name,
       lastName,

@@ -26,7 +26,7 @@ fs.readdirSync(path.join(__dirname, "/Models"))
     modelDefiners.push(require(path.join(__dirname, "/Models", file)));
   });
 
-// Injectamos la conexion (sequelize) a todos los modelos
+// Injectamos la conexión (sequelize) a todos los modelos
 modelDefiners.forEach((model) => model(sequelize));
 // Capitalizamos los nombres de los modelos ie: product => Product
 let entries = Object.entries(sequelize.models);
@@ -37,12 +37,27 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 const {
 Alert,
+Route,
+Symptom,
 Personal,
 Mobile,
 Patient,
 UserAdmin,
-Company
+Company,
+MobileAssignment,
 } = sequelize.models;
+
+
+Mobile.belongsToMany(Personal, { through: MobileAssignment, foreignKey: "mobileId" });
+Personal.belongsToMany(Mobile, { through: MobileAssignment, foreignKey: "personId" });
+
+Alert.belongsTo(Mobile, { foreignKey: 'mobileId' });
+
+Alert.belongsToMany(Symptom, { through: "alert_symptom", timestamps: false });
+Symptom.belongsToMany(Alert, { through: "alert_symptom", timestamps: false });
+
+Alert.hasOne(Route, { foreignKey: 'alertId' });
+Route.belongsTo(Alert, { foreignKey: 'alertId' });
 
 Company.hasMany(Patient, { foreignKey: 'companyId' });
 Patient.belongsTo(Company, { foreignKey: 'companyId' });

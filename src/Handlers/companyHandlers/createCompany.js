@@ -17,7 +17,7 @@ const createCompany = async (req, res) => {
     companyType,
     companySize,
     membershipType,
-    location,
+    geoCoding,
     companyLogo
   } = req.body;
 
@@ -33,7 +33,7 @@ const createCompany = async (req, res) => {
       companyType,
       companySize,
       membershipType,
-      location,
+      geoCoding,
       createdBy: user.id,
       updatedBy: user.id,
       companyLogo

@@ -14,29 +14,9 @@ module.exports = (sequelize) => {
         type: DataTypes.UUID,
         allowNull: false,
       },
-      driverId:{
-        type: DataTypes.UUID,
-        allowNull: true,
-        references:{
-            model: "Personal",
-            key: "id"
-        }
-      },
-      nurseId:{
-        type: DataTypes.UUID,
-        allowNull: true,
-        references:{
-            model: "Personal",
-            key: "id"
-        }
-      },
-      doctorId:{
-        type: DataTypes.UUID,
-        allowNull: true,
-        references:{
-            model: "Personal",
-            key: "id"
-        }
+      plateNumber: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       status:{
         type: DataTypes.ENUM,
