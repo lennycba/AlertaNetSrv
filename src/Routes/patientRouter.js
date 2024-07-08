@@ -8,9 +8,9 @@ const editPatient = require("../Handlers/patientsHandlers/editPatient");
 
 
 patientRouter.get('/', getPatients);
-patientRouter.get('/search',getByName)
-patientRouter.get('/:membershipNumber',getMember)
-patientRouter.post('/',createPatient);
-patientRouter.put('/',editPatient)
+patientRouter.get('/search', getByName)
+patientRouter.get('/:membershipNumber', getMember)
+patientRouter.post('/', createPatient);
+patientRouter.put('/', editPatient)
 
 module.exports = patientRouter;

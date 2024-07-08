@@ -46,6 +46,37 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false
       },
+      dataComplete: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+        allowNull: false,
+      },
+      gender: {
+        type: DataTypes.ENUM,
+        values: ["male", "female"],
+        allowNull: true,
+      },
+      DNI: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      birthDate: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
+      },
+      bloodType: {
+        type: DataTypes.ENUM,
+        values: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+        allowNull: true,
+      },
+      healthInsurance: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      profession: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
       address:{
         type: DataTypes.JSON,
         allowNull:true,

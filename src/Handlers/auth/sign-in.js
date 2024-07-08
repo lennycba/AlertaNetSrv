@@ -1,11 +1,11 @@
-const loginPatients = require("../../Controllers/authControllers/login-patients.controller");
+const login = require("../../Controllers/authControllers/login.controller");
 
 
-const signInPatient = async (req, res) => {
+const signIn = async (req, res) => {
   const {email, password} = req.body
 
   try {
-    const { statusCode, ok, message, user, token } = await loginPatients(email, password)
+    const { statusCode, ok, message, user, token } = await login(email, password)
 
     if (!ok) {
       res.status(statusCode).json({ ok, message })
@@ -22,4 +22,4 @@ const signInPatient = async (req, res) => {
   }
 }
 
-module.exports = signInPatient
+module.exports = signIn

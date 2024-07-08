@@ -4,23 +4,24 @@ const updatePatient = require('../../Controllers/patientsControllers/updatePatie
 //ACLARACIÓN: es necesario corregir la req de IMAGE para que tome la ruta de cloudinary cuando claudinary se implemente
 
 const editPatient = async (req,res) =>{
+    const { id } = req.user
+    const image = req.files.image.tempFilePath
+    
     const{
         status,
-        membershipNumber,
         role,
         name,
         lastName,
         phone,
         address,
         medicalHistory,
-        image,
     } = req.body;
 
 
     try {
         const patientData = {
+            id,
             status,
-            membershipNumber,
             role,
             name,
             lastName,

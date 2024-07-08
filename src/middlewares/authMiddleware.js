@@ -12,12 +12,12 @@ const verifyToken = (req, res, next) => {
 
   if (!token) return res.status(401).json({ success: false, message: 'Token no proporcionado' })
   
-
   try {
     const verified = jwt.verify(token, SECRET_KEY, {
       issuer: JWT_ISSUER,
       audience: JWT_AUDIENCE
     })
+
     req.user = verified
     next()
   } catch (error) {

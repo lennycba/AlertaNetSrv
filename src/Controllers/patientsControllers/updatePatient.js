@@ -1,8 +1,9 @@
+const uploadImage = require("../../config/cloudinary.config");
 const { Patient } = require("../../db");
 
 const updatePatient = async ({
+  id,
   status,
-  membershipNumber,
   role,
   name,
   lastName,
@@ -11,32 +12,58 @@ const updatePatient = async ({
   medicalHistory,
   image,
 }) => {
-  let patientToUpdate = await Patient.findOne({ membershipNumber });
-  console.log(patientToUpdate);
+
+  let patientToUpdate = await Patient.findByPk(id);
+
   if (!patientToUpdate) {
-    throw new Error("Paciente no encontrado");
+    return {
+      ok: false,
+      message: "Patient not found",
+    }
   } else {
-    // Actualizar campos que se envian:
+    // Actualizar campos que se envían:
 
-    if (status != undefined) patientToUpdate.status = status;
+    let imageToUpdate;
 
-    if (role != undefined) patientToUpdate.role = role;
+    if (image) {
+      const { secure_url } = await uploadImage(image)
+      console.log(secure_url);
+      if (!secure_url) {
+        return {
+          ok: false,
+          message: "Error uploading image",
+        }
+      }
+      imageToUpdate = secure_url;
+    }
 
-    if (name != undefined) patientToUpdate.name = name;
+    const [rowsUpdated, [updatedPatient]] = await Patient.update(
+      {
+        status,
+        role,
+        name,
+        lastName,
+        phone,
+        address,
+        medical_history: medicalHistory,
+        image: imageToUpdate,
+      },
+      { returning: true, where: { id } }
+    );
 
-    if (lastName != undefined) patientToUpdate.lastName = lastName;
-
-    if (phone != undefined) patientToUpdate.phone = phone;
-
-    if (address != undefined) patientToUpdate.address = address;
-
-    if (medicalHistory != undefined)
-      patientToUpdate.medical_history = medicalHistory;
-
-    if (image != undefined) patientToUpdate.image = image;
+    if (rowsUpdated > 0) {
+      return {
+        ok: true,
+        event: updatedPatient,
+      };
+    } else {
+      return {
+        ok: false,
+        message: "User not found",
+      };
+    }
   }
-  await patientToUpdate.save();
-  return patientToUpdate;
+
 };
 
 module.exports = updatePatient;

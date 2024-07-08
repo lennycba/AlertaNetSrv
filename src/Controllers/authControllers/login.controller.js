@@ -1,19 +1,32 @@
 const dotenv = require('dotenv')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const { Patient } = require('../../db');
+const { Patient, Personal } = require('../../db');
 
 dotenv.config()
 
 const { JWT_ISSUER, JWT_AUDIENCE } = process.env
 
-const loginPatients = async (email, pass) => {
+const login = async (email, pass) => {
 
-  const user = await Patient.findOne({
+
+  let user;
+
+  user = await Patient.findOne({
     where: {
       email
     }
   })
+
+  if (!user) {
+    user = await Personal.findOne({
+      where: {
+        email
+      }
+    })    
+  }
+
+
 
   if (!user) {
     return {
@@ -58,4 +71,4 @@ const loginPatients = async (email, pass) => {
   }
 }
 
-module.exports = loginPatients
+module.exports = login
