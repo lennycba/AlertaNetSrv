@@ -1,74 +1,74 @@
-const dotenv = require('dotenv')
-const bcryptjs = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const { Patient, Personal } = require('../../db');
+const dotenv = require("dotenv");
+const bcryptjs = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const { Patient, Company } = require("../../db");
 
-dotenv.config()
+dotenv.config();
 
-const { JWT_ISSUER, JWT_AUDIENCE } = process.env
+const { JWT_ISSUER, JWT_AUDIENCE } = process.env;
 
 const login = async (email, pass) => {
-
-
   let user;
 
   user = await Patient.findOne({
     where: {
-      email
-    }
-  })
-
-  if (!user) {
-    user = await Personal.findOne({
-      where: {
-        email
-      }
-    })    
-  }
-
-
+      email,
+    },
+    include: {
+      model: Company,
+      attributes: [
+        "id",
+        "companyName",
+        "email",
+        "phone",
+        "address",
+        "city",
+        "province",
+        "country",
+        "companyLogo",
+      ],
+    },
+  });
 
   if (!user) {
     return {
-      ok: false, 
+      ok: false,
       statusCode: 404,
-      message: "User not found"
-    }
+      message: "User not found",
+    };
   } else {
     const dataPassword = user.password;
-    const validPassword = bcryptjs.compareSync(pass, dataPassword)
-
+    const validPassword = bcryptjs.compareSync(pass, dataPassword);
 
     if (!validPassword) {
       return {
-        ok: false, 
+        ok: false,
         statusCode: 401,
-        message: "Unauthorized"
-      }
+        message: "Unauthorized",
+      };
     }
 
     const payload = {
       id: user.id,
       companyId: user.companyId,
       role: user.role,
-    }
-    const { password, ...rest } = user.dataValues
+    };
+    const { password, ...rest } = user.dataValues;
 
     const token = jwt.sign(payload, process.env.SECRET_KEY, {
-      expiresIn: '5d',
+      expiresIn: "5d",
       issuer: JWT_ISSUER,
-      audience: JWT_AUDIENCE
-    })
-
+      audience: JWT_AUDIENCE,
+    });
 
     return {
-      ok: true, 
+      ok: true,
       statusCode: 200,
       token,
       user: rest,
-      message: "Login success"
-    }
+      message: "Login success",
+    };
   }
-}
+};
 
-module.exports = login
+module.exports = login;

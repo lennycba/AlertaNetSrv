@@ -7,7 +7,7 @@ const verifyToken = require("../middlewares/authMiddleware");
 
 //alertRouter.post('/', createTicket);
 alertRouter.get("/", getAlerts);
-alertRouter.get("/:id", getById);
+
 alertRouter.post("/", verifyToken, createTicket);
 
 module.exports = alertRouter;

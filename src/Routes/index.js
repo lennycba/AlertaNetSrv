@@ -8,7 +8,10 @@ const superadminRouter = require("./superadminRouter");
 const companyRouter = require("./companyRouter");
 const seederRouter = require("./seederRouter");
 const verifyToken = require("../middlewares/authMiddleware");
+const apiRouter = require("./apiRouter");
 
+
+mainRouter.use('/api', apiRouter)
 mainRouter.use('/alert', alertRouter);
 mainRouter.use('/patient', verifyToken, patientRouter);
 mainRouter.use('/personal', personalRouter);

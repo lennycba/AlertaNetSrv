@@ -1,4 +1,4 @@
-const {Alert,Mobile,Patient,Personal} = require ('../../db');
+const { Alert, Mobile, Patient, Personal, Company } = require ('../../db');
 
 const searchById = async (id) =>{
     const searchAlert = await Alert.findOne({
@@ -22,7 +22,21 @@ const searchById = async (id) =>{
     const searchPatient = await Patient.findOne({
         where:{
             id:id,
-        }
+        },
+        include: {
+            model: Company,
+            attributes: [
+              "id",
+              "companyName",
+              "email",
+              "phone",
+              "address",
+              "city",
+              "province",
+              "country",
+              "companyLogo",
+            ],
+          },
     });
     if(searchPatient) return searchPatient;
 
