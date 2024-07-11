@@ -1,7 +1,7 @@
 const dotenv = require("dotenv");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { Patient, Company } = require("../../db");
+const { Patient, Company, Personal } = require("../../db");
 
 dotenv.config();
 
@@ -29,6 +29,14 @@ const login = async (email, pass) => {
       ],
     },
   });
+
+  if (!user) {
+    user = await Personal.findOne({
+      where: {
+        email,
+      },
+    });
+  }
 
   if (!user) {
     return {
