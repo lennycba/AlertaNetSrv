@@ -7,14 +7,14 @@ const getAllAdmin = async () => {
     return {
       statusCode: 200,
       ok: true,
-      message: "SuperAdmin List",
+      message: "Admin List",
       userAdmins: userAdmins,
     };
   if (userAdmins.length === 0)
     return {
       statusCode: 404,
       ok: false,
-      message: "No superadmins found",
+      message: "No Admin found",
     };
 };
 
