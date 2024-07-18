@@ -45,8 +45,11 @@ Patient,
 UserAdmin,
 Company,
 MobileAssignment,
+MobileAssignmentPersonal,
 } = sequelize.models;
 
+MobileAssignment.belongsToMany(Personal, { through: MobileAssignmentPersonal, foreignKey: 'mobileAssignmentId' });
+Personal.belongsToMany(MobileAssignment, { through: MobileAssignmentPersonal, foreignKey: 'personalId' });
 
 Mobile.belongsToMany(Personal, { through: MobileAssignment, foreignKey: "mobileId" });
 Personal.belongsToMany(Mobile, { through: MobileAssignment, foreignKey: "personId" });

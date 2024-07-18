@@ -1,9 +1,9 @@
-// models/MobileAssignment.js
+// models/MobileAssignmentPersonal.js
 const { DataTypes, UUIDV4 } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "MobileAssignment",
+    "MobileAssignmentPersonal",
     {
       id: {
         type: DataTypes.UUID,
@@ -11,22 +11,25 @@ module.exports = (sequelize) => {
         defaultValue: UUIDV4,
         allowNull: false,
       },
-      mobileId: {
+      mobileAssignmentId: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
-          model: "Mobile",
+          model: "MobileAssignment",
           key: "id",
         },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
-      assignmentStart: {
-        type: DataTypes.DATE,
+      personalId: {
+        type: DataTypes.UUID,
         allowNull: false,
-        defaultValue: DataTypes.NOW,
-      },
-      assignmentEnd: {
-        type: DataTypes.DATE,
-        allowNull: true,
+        references: {
+          model: "Personal",
+          key: "id",
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
     },
     {

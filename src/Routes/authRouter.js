@@ -10,7 +10,8 @@ const authRouter = Router();
 
 authRouter.post("/sign-in", signIn);
 
-authRouter.post("/staff/sign-in", signInStaff);
+// Reemplazar handler
+authRouter.post("/vehicle/sign-in", signInStaff);
 
 authRouter.post("/superadmin/sign-in", signInSuperadmin);
 
