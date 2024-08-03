@@ -1,0 +1,112 @@
+[
+  {
+    "name": {
+      "es": "Diabetes",
+      "pt": "Diabetes"
+    },
+    "description": {
+      "es": "Enfermedad crónica que afecta la capacidad del cuerpo para regular el azúcar en la sangre.",
+      "pt": "Doença crônica que afeta a capacidade do corpo de regular o açúcar no sangue."
+    }
+  },
+  {
+    "name": {
+      "es": "Hipertensión",
+      "pt": "Hipertensão"
+    },
+    "description": {
+      "es": "Condición crónica caracterizada por la presión arterial alta.",
+      "pt": "Condição crônica caracterizada pela pressão arterial alta."
+    }
+  },
+  {
+    "name": {
+      "es": "Obesidad",
+      "pt": "Obesidade"
+    },
+    "description": {
+      "es": "Acumulación excesiva de grasa corporal que puede afectar la salud.",
+      "pt": "Acúmulo excessivo de gordura corporal que pode afetar a saúde."
+    }
+  },
+  {
+    "name": {
+      "es": "Insuficiencia Renal",
+      "pt": "Insuficiência Renal"
+    },
+    "description": {
+      "es": "Condición en la que los riñones no pueden filtrar adecuadamente los desechos de la sangre.",
+      "pt": "Condição em que os rins não conseguem filtrar adequadamente os resíduos do sangue."
+    }
+  },
+  {
+    "name": {
+      "es": "Cáncer",
+      "pt": "Câncer"
+    },
+    "description": {
+      "es": "Enfermedad caracterizada por el crecimiento descontrolado de células anormales en el cuerpo.",
+      "pt": "Doença caracterizada pelo crescimento descontrolado de células anormais no corpo."
+    }
+  },
+  {
+    "name": {
+      "es": "Asma",
+      "pt": "Asma"
+    },
+    "description": {
+      "es": "Enfermedad crónica que afecta las vías respiratorias, causando dificultad para respirar.",
+      "pt": "Doença crônica que afeta as vias respiratórias, causando dificuldade para respirar."
+    }
+  },
+  {
+    "name": {
+      "es": "Artritis",
+      "pt": "Artrite"
+    },
+    "description": {
+      "es": "Inflamación de las articulaciones que causa dolor y rigidez.",
+      "pt": "Inflamação das articulações que causa dor e rigidez."
+    }
+  },
+  {
+    "name": {
+      "es": "Hepatitis",
+      "pt": "Hepatite"
+    },
+    "description": {
+      "es": "Inflamación del hígado generalmente causada por infecciones virales.",
+      "pt": "Inflamação do fígado geralmente causada por infecções virais."
+    }
+  },
+  {
+    "name": {
+      "es": "Osteoporosis",
+      "pt": "Osteoporose"
+    },
+    "description": {
+      "es": "Enfermedad que debilita los huesos, haciéndolos más propensos a fracturas.",
+      "pt": "Doença que enfraquece os ossos, tornando-os mais propensos a fraturas."
+    }
+  },
+  {
+    "name": {
+      "es": "EPOC",
+      "pt": "DPOC"
+    },
+    "description": {
+      "es": "Enfermedad pulmonar obstructiva crónica que causa dificultad para respirar.",
+      "pt": "Doença pulmonar obstrutiva crônica que causa dificuldade para respirar."
+    }
+  },
+  {
+    "name": {
+      "es": "Tiroides",
+      "pt": "Tireoide"
+    },
+    "description": {
+      "es": "Desórdenes que afectan la glándula tiroides, alterando la producción de hormonas.",
+      "pt": "Distúrbios que afetam a glândula tireoide, alterando a produção de hormônios."
+    }
+  }
+]

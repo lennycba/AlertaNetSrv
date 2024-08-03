@@ -1,0 +1,52 @@
+[
+  {    
+    "name": {
+        "es": "Penicilina",
+        "pt": "Penicilina"
+    },
+    "description": {
+        "es": "La penicilina es un antibiótico usado para tratar infecciones bacterianas. Las alergias a la penicilina pueden causar urticaria, hinchazón y anafilaxia.",
+        "pt": "A penicilina é um antibiótico usado para tratar infecções bacterianas. As alergias à penicilina podem causar urticária, inchaço e anafilaxia."
+    }
+  },
+  {
+    "name": {
+        "es": "Insulina",
+        "pt": "Insulina"
+    },
+    "description": {
+        "es": "La insulina es una hormona utilizada para controlar la diabetes. Las reacciones alérgicas a la insulina pueden incluir erupciones cutáneas, hinchazón en el sitio de la inyección y anafilaxia.",
+        "pt": "A insulina é um hormônio usado para controlar o diabetes. As reações alérgicas à insulina podem incluir erupções cutâneas, inchaço no local da injeção e anafilaxia."
+    }
+  },
+  {
+    "name": {
+        "es": "Ibuprofeno",
+        "pt": "Ibuprofeno"
+    },
+    "description": {
+        "es": "El ibuprofeno es un antiinflamatorio no esteroideo (AINE) utilizado para reducir la fiebre y tratar el dolor o la inflamación. Las alergias al ibuprofeno pueden causar erupciones cutáneas, urticaria y anafilaxia.",
+        "pt": "O ibuprofeno é um anti-inflamatório não esteroide (AINE) usado para reduzir a febre e tratar a dor ou inflamação. As alergias ao ibuprofeno podem causar erupções cutâneas, urticária e anafilaxia."
+    }
+  },
+  {
+    "name": {
+        "es": "Lidocaína",
+        "pt": "Lidocaína"
+    },
+    "description": {
+        "es": "La lidocaína es un anestésico local utilizado para adormecer tejidos en una área específica. Las alergias a la lidocaína pueden incluir reacciones cutáneas, hinchazón y en casos raros, anafilaxia.",
+        "pt": "A lidocaína é um anestésico local usado para adormecer tecidos em uma área específica. As alergias à lidocaína podem incluir reações cutâneas, inchaço e, em casos raros, anafilaxia."
+    }
+  },
+  {
+    "name": {
+        "es": "Betabloqueantes",
+        "pt": "Betabloqueadores"
+    },
+    "description": {
+        "es": "Los betabloqueantes son medicamentos que se utilizan para reducir la presión arterial y tratar problemas cardíacos. Las reacciones alérgicas a los betabloqueantes pueden incluir erupciones cutáneas, picazón y, en casos raros, anafilaxia.",
+        "pt": "Os betabloqueadores são medicamentos usados para reduzir a pressão arterial e tratar problemas cardíacos. As reações alérgicas aos betabloqueadores podem incluir erupções cutâneas, coceira e, em casos raros, anafilaxia."
+    }
+  }
+]

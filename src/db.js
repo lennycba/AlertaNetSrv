@@ -39,6 +39,8 @@ const {
 Alert,
 Route,
 Symptom,
+Allergy,
+ChronicPathology,
 Personal,
 Mobile,
 Patient,
