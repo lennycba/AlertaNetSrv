@@ -1,6 +1,6 @@
 const { Router } = require("express");
 
-const signInPatient = require("../Handlers/auth/sign-in-patients");
+const signIn = require("../Handlers/auth/sign-in");
 const signInStaff = require("../Handlers/auth/sign-in-staff");
 const signInSuperadmin = require("../Handlers/auth/sign-in-superadmin");
 
@@ -8,9 +8,10 @@ const signInSuperadmin = require("../Handlers/auth/sign-in-superadmin");
 const authRouter = Router();
 // const loginUser = require("../Handlers/alertsHandlers/getAlerts");
 
-authRouter.post("/patient/sign-in", signInPatient);
+authRouter.post("/sign-in", signIn);
 
-authRouter.post("/staff/sign-in", signInStaff);
+// Reemplazar handler
+authRouter.post("/vehicle/sign-in", signInStaff);
 
 authRouter.post("/superadmin/sign-in", signInSuperadmin);
 

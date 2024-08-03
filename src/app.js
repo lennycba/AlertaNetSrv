@@ -2,15 +2,11 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
-const mainRouter = require("./Routes");
-// const fileUpload = require("express-fileupload");
-require("./db.js");
-
 const {createServer} = require('http')
-
-
-
+const fileUpload = require("express-fileupload");
 const cors = require("cors");
+const mainRouter = require("./Routes");
+require("./db.js");
 
 const server = express();
 
@@ -41,6 +37,11 @@ server.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
+
+server.use( fileUpload ( { 
+  useTempFiles : true , 
+  tempFileDir : '/tmp/' 
+} ) ) ;
 
 server.use(mainRouter);
 

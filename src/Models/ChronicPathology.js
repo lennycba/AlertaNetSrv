@@ -1,9 +1,8 @@
-// models/MobileAssignment.js
 const { DataTypes, UUIDV4 } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "MobileAssignment",
+    "ChronicPathology",
     {
       id: {
         type: DataTypes.UUID,
@@ -11,21 +10,21 @@ module.exports = (sequelize) => {
         defaultValue: UUIDV4,
         allowNull: false,
       },
-      mobileId: {
+      name: {
+        type: DataTypes.JSON,
+        allowNull: false,
+      },
+      description: {
+        type: DataTypes.JSON,
+        allowNull: true,
+      },
+      default: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
+      patientId: {
         type: DataTypes.UUID,
-        allowNull: false,
-        references: {
-          model: "Mobile",
-          key: "id",
-        },
-      },
-      assignmentStart: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-      },
-      assignmentEnd: {
-        type: DataTypes.DATE,
         allowNull: true,
       },
     },

@@ -4,7 +4,7 @@ const getAllPatients = async () => {
     const patients = await Patient.findAll({
         include: {
             model: Company,
-            attributes: ['id', 'companyName', 'email', 'phone', 'address', 'city', 'province', 'country', 'location', 'companyLogo'],
+            attributes: ['id', 'companyName', 'email', 'phone', 'address', 'city', 'province', 'country', 'companyLogo'],
         },
         attributes: {
             exclude: 'password'

@@ -1,0 +1,82 @@
+const dotenv = require("dotenv");
+const bcryptjs = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const { Patient, Company, Personal } = require("../../db");
+
+dotenv.config();
+
+const { JWT_ISSUER, JWT_AUDIENCE } = process.env;
+
+const login = async (email, pass) => {
+  let user;
+
+  user = await Patient.findOne({
+    where: {
+      email,
+    },
+    include: {
+      model: Company,
+      attributes: [
+        "id",
+        "companyName",
+        "email",
+        "phone",
+        "address",
+        "city",
+        "province",
+        "country",
+        "companyLogo",
+      ],
+    },
+  });
+
+  if (!user) {
+    user = await Personal.findOne({
+      where: {
+        email,
+      },
+    });
+  }
+
+  if (!user) {
+    return {
+      ok: false,
+      statusCode: 404,
+      message: "User not found",
+    };
+  } else {
+    const dataPassword = user.password;
+    const validPassword = bcryptjs.compareSync(pass, dataPassword);
+
+    if (!validPassword) {
+      return {
+        ok: false,
+        statusCode: 401,
+        message: "Unauthorized",
+      };
+    }
+
+    const payload = {
+      id: user.id,
+      companyId: user.companyId,
+      role: user.role,
+    };
+    const { password, ...rest } = user.dataValues;
+
+    const token = jwt.sign(payload, process.env.SECRET_KEY, {
+      expiresIn: "5d",
+      issuer: JWT_ISSUER,
+      audience: JWT_AUDIENCE,
+    });
+
+    return {
+      ok: true,
+      statusCode: 200,
+      token,
+      user: rest,
+      message: "Login success",
+    };
+  }
+};
+
+module.exports = login;
